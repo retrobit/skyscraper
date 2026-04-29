@@ -173,11 +173,11 @@ int main(int argc, char *argv[]) {
         }
     }
     Config configCls;
+    QObject::connect(&configCls, &Config::die,
+                         skyscraper, &Skyscraper::bury);
     configCls.initSkyFolders();
     configCls.setupUserConfig();
     configCls.checkLegacyFiles();
-    QObject::connect(&configCls, &Config::die,
-                         skyscraper, &Skyscraper::bury);
 
     QCommandLineParser parser;
     Cli::createParser(&parser, configCls.getSupportedPlatforms());

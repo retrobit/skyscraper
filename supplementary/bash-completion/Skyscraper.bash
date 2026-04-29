@@ -29,8 +29,7 @@ _skyscraper_parse_subhelp() {
 			skyscraper_bin="$(realpath "$executable")"
 		fi
 	fi
-	# detect with shell coloring but remove shell coloring before output
-	"$skyscraper_bin" "$prev" help | awk '/  [a-z](.+)\x1b\[[0-9;]*m/ {print $2}' | sed -e 's/\x1b\[[0-9;]*m//g'
+	"$skyscraper_bin" "$prev" help | awk '/^  ([a-z])+[: ]+.*/ {print $1}'
 }
 
 _skyscraper() {

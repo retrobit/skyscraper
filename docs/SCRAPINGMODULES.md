@@ -4,7 +4,7 @@ Skyscraper supports several online and local sources when scraping data for your
 
 Choosing a scraping module is as simply as setting the `-s <MODULE>` option when running Skyscraper on the command line. It also requires a platform to be set with `-p <PLATFORM>`. If you leave out the `-s` option Skyscraper goes into _game list generation_ mode and combines your cached data into a game list for the chosen platform and frontend. Read more about the [resource cache](CACHE.md) if needed.
 
-For scraping modules that support or require user credentials you have the option of either setting it on commandline with `-u <USER:PASSWD>` or `-u <KEY>` or better yet, by adding it permanently to the Skyscraper configuration at `/home/<USER>/.skyscraper/config.ini` as described in the [configuration documentation](CONFIGINI.md#usercredscredentials-or-key)
+For scraping modules that support or require user credentials you have the option of either setting it on commandline with `-u <USER:PASSWD>` or `-u <KEY>` or better yet, by adding it permanently to the Skyscraper configuration at `/home/<USER>/.skyscraper/config.ini` as described in the [configuration documentation](CONFIGINI.md#usercreds)
 
 Remember, on existing Skyscraper installations to adapt the `priorities.xml` file for the more recently added metadata like Manuals, Fan Art and Back of Cover. You may want to review the section [Resource and Scraping Module Priorities](CACHE.md#resource-and-scraping-module-priorities).
 
@@ -247,7 +247,7 @@ the [userCreds](CONFIGINI.md#usercreds) configuration (without any colon) in the
 
 If you're looking specifically for ZX Spectrum data, this is the module to use. ZXInfo is probably the most complete ZX Spectrum resource and information database in existence. I strongly recommend visiting the site if you have any interest in these little machines. It's a cornucopia of information on the platform.  
 This module always tries to match the file hash (SHA512) first, which will give you the most accurate match when you use well known ZX Spectrum game collections. If the file hash has no match the filename is used. As with ZX Spectrum there are often many fan made clones, you may hint Skyscraper to return the wanted match by adding the release year to either the filename or in the file `aliasMap.csv`, for example `Manic Miner (1983).tzx` as file or `ManicMiner;Manic Miner (1983)` in `aliasMap.csv` (aliasing the source file `ManicMiner.tzx` or `ManicMiner.tzx.zip`), also make sure to have the configuration option [`ignoreYearInFilename`](CONFIGINI.md#ignoreyearinfilename) set to `false` (which is the default).  
-If all else fails you can use the [`--query`](CLIHELP.md#--query-string) option for single games. If you use the query option no automatic file hash lookup is performed. Here you may either use `id=0...` (see [zxinfo.dk](https://zxinfo.dk) for the ID, it must start with at least one `0`, Skyscraper will pad with the remaining zeros to match the 7 digit format expected). Or you may use a specific MD5 / SHA512 hash to force exactly this game metadata to be scraped, use the hash directly as query value without any keyword.
+If all else fails you can use the [`--query`](CLIHELP.md#-query-string) option for single games. If you use the query option no automatic file hash lookup is performed. Here you may either use `id=0...` (see [zxinfo.dk](https://zxinfo.dk) for the ID, it must start with at least one `0`, Skyscraper will pad with the remaining zeros to match the 7 digit format expected). Or you may use a specific MD5 / SHA512 hash to force exactly this game metadata to be scraped, use the hash directly as query value without any keyword.
 
 ### Custom Resource Import
 
@@ -265,7 +265,7 @@ If all else fails you can use the [`--query`](CLIHELP.md#--query-string) option 
   Skyscraper -p snes -s import
   ```
 
-The import scraper has always set [--refresh](CLIHELP.md#--refresh) to true.  
+The import scraper has always set [--refresh](CLIHELP.md#-refresh) to true.  
 Read a thorough description of the [import module](IMPORT.md) to recognize all capabilities.
 
 ### GameBase DB
@@ -342,7 +342,7 @@ esgamelist data higher in the output precedence.
 
     Remember you can also provide a single or a set of gamefiles on the
     commandline or provide a list of gamefiles (e.g., with
-    [includeFrom](CLIHELP.md#--includefrom-filename)) to do a sparse import.
+    [includeFrom](CLIHELP.md#-includefrom-filename)) to do a sparse import.
     In that case no `--refresh` flag has to be provided, it is set to on
     implicitly.
 

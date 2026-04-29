@@ -3,6 +3,22 @@
 This page summarizes the changes of each Skyscraper release, a [changlog for
 humans](https://keepachangelog.com).
 
+### Version 3.20.0 (2026-05-TBA)
+
+- Added: Support for RetroArch compatible frontend output. Thanks to @SineSwiper
+  for the valueable input
+- Changed: Region prioritization by filename. Before this version any region
+  detected in a filename has had the highest priority (put first in the list in
+  the order they appear in the filename) for finding a match. Then followed by
+  the configured region prios. With this version the filename detected regions
+  are also added in order as they appear in the region priorities. See
+  also the updated [region
+  documentation](REGIONS.md#default-region-prioritization). Thanks for bringing
+  this to my attention @mattfeeder18
+- Updated: `mamemap.csv` with MAME 0.284 entries and platform definitions of
+  Screenscraper.fr, MobyGames and The GamesDB.
+- Fixed: Several minor bugs
+
 ### Version 3.19.0 (2026-03-16)
 
 - Added: BBC Micro is now supported out-of-the-box as
@@ -31,7 +47,7 @@ humans](https://keepachangelog.com).
 - Added: Mitigation of Screenscraper.fr long running responses on some games
   causing games not to be scraped (since 3.18.4), thanks for reporting
   @saitamasahil, @ZacharyFoxx and @therealpxc
-- Added: CLI option [`--stderr`](CLIHELP.md#--stderr) which explicitly prints a
+- Added: CLI option [`--stderr`](CLIHELP.md#-stderr) which explicitly prints a
   one liner to stderr when Skyscraper runs into an error condition in addition
   to the stdout output. Parsing this single line makes integrations into other
   programs more convenient (leaning towards
@@ -122,7 +138,7 @@ the place to put ideas or to table Skyscraper puzzles.
   `addExtensions`). In addition to `'*.ext'` also allow `'.ext'` and even `'ext'`
 - Added: Accept also singular for media flags, e.g. `--flags video` additionally
   to `--flags videos`. However, in the config file accept only plural as before.
-- Added: Flag [`--buildinfo`](CLIHELP.md#--buildinfo), comes in handy when
+- Added: Flag [`--buildinfo`](CLIHELP.md#-buildinfo), comes in handy when
   reporting an issue.
 - Updated: The prefix "~/" in path-like configuration options will be expanded
   to [QDir:homePath()](https://doc.qt.io/qt-6/qdir.html#homePath).

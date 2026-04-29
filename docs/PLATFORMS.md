@@ -41,8 +41,8 @@ Take this example from the `peas.json` file:
   The use of aliases is handy especially for scraping websites which do _not_
   provide a web API. Currently Screenscraper, Mobygames or The Games DB are
   providing an web API. See also section about
-  [`platforms_idmap.csv`](#exact-platform-mapping) and [Updating the
-  files](#updating-peasjson-and-platforms_idmapcsv) below.
+  [`platforms_idmap.csv`](#file-two-exact-platform-mapping) and [updating the
+  files](#updating-peas_localjson-and-platforms_idmap_localcsv) below.
 - `formats`: set of ROM file extensions which will be included in scraping if
   a ROM file is not provided explicitly via command line.
 

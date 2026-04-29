@@ -14,6 +14,8 @@ When generating a game list for any frontend, Skyscraper will try to preserve ce
 
 -   Default game list location: `/home/<USER>/RetroPie/roms/<PLATFORM>`
 -   Default game list filename: `gamelist.xml`
+-   Default input path: `/home/<USER>/RetroPie/roms/<PLATFORM>`
+-   Default media path: `/home/<USER>/RetroPie/roms/<PLATFORM>/media`
 
 This is the default frontend used when generating a game list with Skyscraper. If no frontend is defined on command-line or in `config.ini` it will fall back to generating for EmulationStation. By default the `<USER>` is `pi` on RetroPie setups.
 
@@ -71,9 +73,11 @@ highlights the differences.
 
 -   Default game list location: `/home/<USER>/ES-DE/gamelists/<PLATFORM>`
 -   Default game list filename: `gamelist.xml`
+-   Default input path: `/home/<USER>/ROMs/<PLATFORM>`
+-   Default media path: `/home/<USER>/ES-DE/downloaded_media/<PLATFORM>`
 
 ROMs are expected to be in the input folder `/home/<USER>/ROMs/<PLATFORM>` for
-every `<PLATFORM>` you scrape.
+every `<PLATFORM>` you scrape by default.
 
 Media filepaths (screenshots, marquees, videos, aso.) are not held in the
 gamelist file. This is ES-DE default. However, Skyscraper will put the media
@@ -107,8 +111,10 @@ file will be preserved: For these on top is the `folderlink` element is preserve
 
 -   Default game list location: `/home/<USER>/RetroPie/roms/<PLATFORM>`
 -   Default game list filename: `gamelist.xml`
+-   Default input path: `/home/<USER>/RetroPie/roms/<PLATFORM>`
+-   Default media path: `/home/<USER>/RetroPie/roms/<PLATFORM>/media`
 
-This is modeled after EmualtionStation as it uses it with slight differences.
+This is modeled after EmualtionStation and uses it with no differences.
 
 ### Batocera
 
@@ -135,12 +141,13 @@ This is the complete set of scraping binary data supported by Skyscraper:
 | `video`                       |         ✓          |
 | `wheel`                       |         ✓          |
 
-ROMs are expected to be in the input folder `/userdata/roms/<PLATFORM>` for
+ROMs are expected to be by default in the input folder `/userdata/roms/<PLATFORM>` for
 every `<PLATFORM>` you scrape.
 
 -   Default game list location: `/userdata/roms/<PLATFORM>`
 -   Default game list filename: `gamelist.xml`
--   Default media file location: `/userdata/roms/<PLATFORM>/{images,videos,manuals}`
+-   Default input path: `/userdata/roms/<PLATFORM>`
+-   Default media path: `/userdata/roms/<PLATFORM>/{images,videos,manuals}`
 
 If you set a game list location and do not specifiy the ROM folder (input
 folder) and media folder, then these are set relatively to the game list folder.  
@@ -245,7 +252,7 @@ Windows desktop users can use SMB shares and can adapt the following steps.
 
     For starters I suggest to enable (set `true`) these settings:
     [`unattended`](CONFIGINI.md#unattend),
-    [`unattendedSktip`](CONFIGINI.md#unattendSkip) and most importantly
+    [`unattendedSkip`](CONFIGINI.md#unattendskip) and most importantly
     [`gameListBackup`](CONFIGINI.md#gamelistbackup). If you have precious media
     files which you may want to keep make also a manual backup of the media folders
     of. Also you will have to add your credentials for Screenscraper for example in
@@ -258,6 +265,8 @@ documentation](https://wiki.batocera.org/security).
 
 -   Default game list location: `/home/<USER>/.attract/romlists`
 -   Default game list filename: `<EMULATOR/PLATFORM>.txt`
+-   Default input path: `/home/<USER>/RetroPie/roms/<PLATFORM>`
+-   Default media path: ``/home/<USER>/RetroPie/roms/<PLATFORM>/media`
 
 Attract-Mode is a bit more abstract when it comes to how it saves its game lists and media. To export for Attract-Mode you need to, in addition to setting the frontend, set `-e <EMULATOR>` on command-line or in `config.ini`. The `<EMULATOR>` is a file that describes the platform / emulator you are generating a game list for. The file contains everything needed to tell Attract-Mode how to launch games for the platform, and even where to find the media files for the games (such as screenshots and videos).
 
@@ -271,6 +280,8 @@ Skyscraper will preserve the following metadata when re-generating a game list f
 
 -   Default game list location: `/home/<USER>/RetroPie/roms/<PLATFORM>`
 -   Default game list filename: `metadata.pegasus.txt`
+-   Default input path: `/home/<USER>/RetroPie/roms/<PLATFORM>`
+-   Default media path: ``/home/<USER>/RetroPie/roms/<PLATFORM>/media`
 
 Pegasus is easy and simple to generate a game list for. Simply do `Skyscraper -p <PLATFORM> -f pegasus`. If you want to specify a custom launch command (if you are using RetroPie you do not have to, a default one will be used), you can set it on command-line with `-e "<COMMAND>"` or in `config.ini` with:
 

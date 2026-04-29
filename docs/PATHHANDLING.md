@@ -34,8 +34,17 @@ Now, let's see how Skyscraper handles relative path configuration options.
 
 ### Computing the Absolute Path From a Relative Path
 
-The next subsections are summarizing the absolute path
-calculation Skyscraper applies for the different path and file options.
+As you can see in the flowchart a few frontends support a relative path for the
+input path option. The majority expects in minimum an absolute path as input
+folder:
+
+1. Frontends other than Batocera or Pegasus: The input folder must be absolute,
+   media and game list path may be relative
+2. Frontend RetroArch: Expects absolute paths, also for media and game list
+   (called playlists in RetroArch) folder options
+
+The next subsections are summarizing the absolute path calculation Skyscraper
+applies for all the different configurable path and file options.
 
 #### By Using Current Working Directory
 
@@ -78,9 +87,9 @@ configuration for input folder _must_ be provided absolute and cannot be
 relative. In turn, the media folder, if it is a relative path, is then assumed
 to be relative to the input folder.
 
-However, if you selected the Pegasus or Batocera frontend then the input folder may be
-relative. The input folder and media folder, when relative, are then interpreted
-by Skyscraper to be relative to the game list folder.
+However, if you selected the Pegasus or Batocera frontend then the input folder
+may be relative. The input folder and media folder, when relative, are then
+interpreted by Skyscraper to be relative to the game list folder.
 
 This is also depicted in the diagram above.
 

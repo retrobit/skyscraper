@@ -818,7 +818,7 @@ void Skyscraper::checkThreads() {
         ncprintf(" \033[1;32mDone!\033[0m\n");
         QFile gameListFile(gameListFileString);
         ncprintf("Now writing '\033[1;33m%s\033[0m'... ",
-                 gameListFileString.toStdString().c_str());
+                 PathTools::pathToStdStr(gameListFileString).c_str());
         fflush(stdout);
         if (gameListFile.open(QIODevice::WriteOnly)) {
             state = NO_INTR;
@@ -1102,8 +1102,8 @@ void Skyscraper::loadConfig(const QCommandLineParser &parser) {
 
     if (!QFile::exists(config.inputFolder)) {
         ncprintf("\033[1;31mBummer!\033[0m The provided input folder "
-                 "'\033[1;31m%s\033[0m' does not exist.\nFix your setup. Now "
-                 "quitting...\n",
+                 "'\033[1;31m%s\033[0m' does not exist.\nFix your setup or "
+                 "adapt the input folder option. Now quitting...\n",
                  config.inputFolder.toStdString().c_str());
         emit die(1, QString("cannot access '%1'").arg(config.inputFolder),
                  "No such directory");

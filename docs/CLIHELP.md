@@ -17,11 +17,11 @@ will handle the installation. For the curious: It lands in
 `/etc/bash_completion.d/`.
 
 On _non_ RaspiOS-based RetroPie-Installments put the file from
-`supplementary/bash-completion/Skyscraper.bash` to the file
-`$XDG_DATA_HOME/bash-completion/completions/Skyscraper` (which is usually
-`$HOME/.local/share/bash-completion/completions/Skyscraper`).
+`supplementary/bash-completion/Skyscraper.bash` to the folder
+`$XDG_DATA_HOME/bash-completion/completions/` (which is usually
+`$HOME/.local/share/bash-completion/completions/`).
   
-In either case: Open a new bash and press ++tab++ key twice to see it in action.
+In either case: Open a new bash, type `Skyscraper -s ` for example and press ++tab++ key twice to see it in action.
 
 ### Disable Terminal Colors
 
@@ -29,7 +29,8 @@ By default Skyscraper will use ANSI terminal colors. However, colors will be not
 be used in the output when you run Skyscraper via a serial console or you apply
 file redirection e.g., `Skyscraper ... > out.log`. In any case you can manually
 enforce no color output by setting the environment variable `NO_COLOR` to a
-non-zero value (a value of zero will show colors). For example:
+non-zero value (a value of zero will show colors unless the other cases above
+apply). For example:
 
 ```bash
 NO_COLOR=1 Skyscraper ...
@@ -113,7 +114,7 @@ Skyscraper -p snes -f attractmode -e snes
 
 ### -g &lt;PATH&gt;
 
-Sets the game list export folder. By default Skyscraper exports the game list to the same directory as the rom input folder. This enables you to change that to a non-default location. You may provide also a relative path, which is resolved to an absolute path as documented in the [path handling](PATHHANDLING.md#by-using-current-working-directory) with [this limitation](PATHHANDLING.md#by-using-the-gamelist-folder). Consider setting this in [`config.ini`](CONFIGINI.md#gamelistfolder) instead.
+Sets the game list export folder. By default Skyscraper exports the game list to the same directory as the rom input folder. This enables you to change that to a non-default location. You may provide also a relative path, which is resolved to an absolute path as documented in the [path handling](PATHHANDLING.md#by-using-current-working-directory) with [this limitation](PATHHANDLING.md#by-using-the-gamelist-folder). Consider setting this in [`config.ini`](CONFIGINI.md#gamelistfolder) instead. If you want to use the frontend's default Gamelist folder do apply `-f <FRONTEND>` also for the scraping phase.
 
 **Example(s)**
 
@@ -134,7 +135,7 @@ Skyscraper -h
 
 ### -i &lt;PATH&gt;
 
-Sets the rom input folder. By default Skyscraper will look for roms in the `/home/<user>/RetroPie/roms/<PLATFORM>` folder. If your roms are located in a non-default location, you can set the input path using this option. You may provide also a relative path, which is resolved to an absolute path as documented in the [path handling](PATHHANDLING.md#by-using-current-working-directory). Consider setting this in [`config.ini`](CONFIGINI.md#inputfolder) instead. 
+Sets the rom input folder. By default Skyscraper will look for roms in the `/home/<user>/RetroPie/roms/<PLATFORM>` folder. If your roms are located in a non-default location, you can set the input path using this option. You may provide also a relative path, which is resolved to an absolute path as documented in the [path handling](PATHHANDLING.md#by-using-current-working-directory). Consider setting this in [`config.ini`](CONFIGINI.md#inputfolder) instead. If you want to use the frontend's default input folder do apply `-f <FRONTEND>` also for the scraping phase.
 
 **Example(s)**
 
@@ -164,7 +165,7 @@ Skyscraper -p snes -s thegamesdb -m 50
 
 ### -o &lt;PATH&gt;
 
-Sets the artwork / media output folder. By default Skyscraper outputs the composited artwork files to the game list export folder + `/media`. This allows you to change that to a non-default location. Read more about the [artwork compositing](ARTWORK.md). You may provide also a relative path, which is resolved to an absolute path as documented in the [path handling](PATHHANDLING.md)#by-using-current-working-directory. Consider setting this in [`config.ini`](CONFIGINI.md#mediafolder) instead.
+Sets the artwork / media output folder. By default Skyscraper outputs the composited artwork files to the game list export folder + `/media`. This allows you to change that to a non-default location. Read more about the [artwork compositing](ARTWORK.md). You may provide also a relative path, which is resolved to an absolute path as documented in the [path handling](PATHHANDLING.md)#by-using-current-working-directory. Consider setting this in [`config.ini`](CONFIGINI.md#mediafolder) instead. If you want to use the frontend's default media folder do apply `-f <FRONTEND>` also for the scraping phase.
 
 **Example(s)**
 
@@ -513,7 +514,7 @@ Use this flag to disable any bracket notes when generating the game list. It wil
 
 #### nocovers
 
-Disables the caching of the resource type `cover` when scraping with any module. If you never use covers in your artwork configuration, this flag can save you some space. Consider setting this in [`config.ini`](CONFIGINI.md#cachecoverstrue) instead.
+Disables the caching of the resource type `cover` when scraping with any module. If you never use covers in your artwork configuration, this flag can save you some space. Consider setting this in [`config.ini`](CONFIGINI.md#cachecovers) instead.
 
 #### nocropblack
 
