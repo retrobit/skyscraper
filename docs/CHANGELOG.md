@@ -5,14 +5,17 @@ humans](https://keepachangelog.com).
 
 ### Version 3.20.0 (2026-05-TBA)
 
-- Added: Support for RetroArch compatible frontend output. Thanks to @SineSwiper
-  for the valueable input
+- Added: Scraping of TheGamesDB video media. Set `--flags video` or use option
+  [`videos=true`](CONFIGINI.md#videos).
+- Added: Support for RetroArch compatible frontend output. See
+  [frontend](FRONTENDS.md#retroarch) documentation. Thanks to @SineSwiper for
+  the valueable input
 - Changed: Region prioritization by filename. Before this version any region
   detected in a filename has had the highest priority (put first in the list in
   the order they appear in the filename) for finding a match. Then followed by
-  the configured region prios. With this version the filename detected regions
-  are also added in order as they appear in the region priorities. See
-  also the updated [region
+  the configured region prios. From this this version onwards the filename
+  detected regions are added in order as they appear in the region priorities.
+  See also the updated [region
   documentation](REGIONS.md#default-region-prioritization). Thanks for bringing
   this to my attention @mattfeeder18
 - Updated: `mamemap.csv` with MAME 0.284 entries and platform definitions of
@@ -60,9 +63,9 @@ humans](https://keepachangelog.com).
 - Changed: Add ellipsis (...) on truncated text description, when
   [`maxlength`](CONFIGINI.md#maxlength) is reached.
 - Changed: Initially implemented logic from 2019 which removes cache files when
-either parameter (m _or_ t) of `--cache purge:m=...,t=...` are matched. Updated
-implementation removes resource if and only if both parameters (m _and_ t) are
-matched, cf. thread in [RetroPie Forum](https://retropie.org.uk/forum/post/306255) (since 3.18.3)
+  either parameter (m _or_ t) of `--cache purge:m=...,t=...` are matched. Updated
+  implementation removes resource if and only if both parameters (m _and_ t) are
+  matched, cf. thread in [RetroPie Forum](https://retropie.org.uk/forum/post/306255) (since 3.18.3)
 - Changed: More pleasant replacement for colons (:) in texts for Pegasus frontend.
   Now uses the Unicode counterpart (Modifier Letter Colon, 0xa789) (since 3.18.3). Thanks
   @LeeBigelow
@@ -81,9 +84,10 @@ matched, cf. thread in [RetroPie Forum](https://retropie.org.uk/forum/post/30625
 - Fixed: Some glitches by cache commands which can operate without a platform
   given (since 3.18.4). These cache features were added in 3.15.0.
 - Fixed: Reverted logic to ignore media during esgamelist ingest, unless they
-are explicitly set (e.g., `--flags video`) (since 3.18.3); regression from
-3.18.0, cf. thread in [RetroPie Forum](https://retropie.org.uk/forum/post/306218), thanks for reporting
-@s1eve-mcdichae1
+  are explicitly set (e.g., `--flags video`) (since 3.18.3); regression from
+  3.18.0, cf. thread in [RetroPie
+  Forum](https://retropie.org.uk/forum/post/306218), thanks for reporting
+  @s1eve-mcdichae1
 - Fixed: Filename output name of cache operations (since
   3.18.2), thanks @SineSwiper
 - Fixed: A set of edgecase bugs, thanks to all reporters.
