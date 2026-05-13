@@ -55,6 +55,7 @@ private:
     void getMarquee(GameEntry &game) override;
     void getFanart(GameEntry &game) override;
     void getBackcover(GameEntry &game) override;
+    void getVideo(GameEntry &game) override;
     QVector<int> getPlatformId(const QString platform) override;
     QString getKey();
 

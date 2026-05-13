@@ -53,6 +53,7 @@ TheGamesDb::TheGamesDb(Settings *config, QSharedPointer<NetManager> manager)
     fetchOrder.append(GameEntry::Elem::MARQUEE);
     fetchOrder.append(GameEntry::Elem::FANART);
     fetchOrder.append(GameEntry::Elem::BACKCOVER);
+    fetchOrder.append(GameEntry::Elem::VIDEO);
 }
 
 void TheGamesDb::getSearchResults(QList<GameEntry> &gameEntries,
@@ -310,6 +311,16 @@ void TheGamesDb::getFanart(GameEntry &game) {
     game.fanartData = downloadMedia(req + ".jpg");
     if (game.fanartData.isEmpty()) {
         game.fanartData = downloadMedia(req + ".png");
+    }
+}
+
+void TheGamesDb::getVideo(GameEntry &game) {
+    QString req =
+        QString("https://cdn.thegamesdb.net/videos/%1/%1-1.mp4").arg(game.id);
+    game.videoData = downloadMedia(req, false);
+    if (!game.videoData.isEmpty()) {
+        game.videoFormat = req.right(3);
+        qDebug() << "tgdb: got video from " << req;
     }
 }
 
