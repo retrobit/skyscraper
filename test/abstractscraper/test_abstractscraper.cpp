@@ -31,7 +31,7 @@ private slots:
 
     void testDetectRegionsFromFilename2() {
         scraper = new AbstractScraper(&settings, NULL);
-        QFileInfo info("Gametitle (j) world.zip");
+        QFileInfo info("Gametitle (j) (world).zip");
         QList<QString> regionPriosExp;
         regionPriosExp.append("jp");
         regionPriosExp.append("wor");
@@ -40,11 +40,11 @@ private slots:
 
     void testDetectRegionsFromFilename3() {
         scraper = new AbstractScraper(&settings, NULL);
-        QFileInfo info("Gametitle (france) wOrLD (j).zip");
+        QFileInfo info("Gametitle (france) (wOrLD) (j).zip");
         QList<QString> regionPriosExp;
         regionPriosExp.append("fr");
-        regionPriosExp.append("jp");
         regionPriosExp.append("wor");
+        regionPriosExp.append("jp");
         match(info, regionPriosExp);
         qDebug() << info.completeBaseName();
         qDebug() << regionPriosExp;

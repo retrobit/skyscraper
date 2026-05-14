@@ -15,9 +15,9 @@ _test_android() {
 
 _smoke_test() {
 	# Qt5
-	/usr/local/bin/Skyscraper --buildinfo
+	/usr/local/bin/Skyscraper --buildinfo | grep -q -oPz "(?s)Skyscraper:\s+\d+\..+Qt:\s+5\."
 	# Qt6
-	"${SKYSCRAPER_HOME}/Skyscraper" --buildinfo
+	"${SKYSCRAPER_HOME}/Skyscraper" --buildinfo | grep -q -oPz "(?s)Skyscraper:\s+\d+\..+Qt:\s+6\."
 }
 
 _unit_tests() {
@@ -59,8 +59,7 @@ main() {
 	case "${1:-}" in
 	"android-aarch64") _test_android "aarch64" ;;
 	"android-arm") _test_android "ARM" ;;
-	*) _unit_tests && _exit_test;;
-	#*) _smoke_test;;
+	*) _smoke_test && _unit_tests && _exit_test;;
 	esac
 }
 

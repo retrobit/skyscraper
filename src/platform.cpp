@@ -278,7 +278,9 @@ bool Platform::loadPlatformsIdMap() {
   Whereas user edits in such files should go into _local files (introduced with
   3.13).
 */
-// 0: pristine, 1: local changes, -1 not readable, -2 non existing
+// 0: pristine or not existing (-> overwrite),
+// 1: local changes,
+// -1 not readable (permission error)
 int Platform::isPlatformCfgfilePristine(const QString &cfgFilePath) {
     QMap<QString, QStringList> sha256sums = {
         // clang-format off
@@ -309,7 +311,7 @@ int Platform::isPlatformCfgfilePristine(const QString &cfgFilePath) {
     };
     QFileInfo cfgFileInfo = QFileInfo(cfgFilePath);
     if (!cfgFileInfo.exists()) {
-        return -2;
+        return 0;
     }
 
     QCryptographicHash sha256 = QCryptographicHash(QCryptographicHash::Sha256);

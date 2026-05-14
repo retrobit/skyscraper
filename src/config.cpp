@@ -246,6 +246,9 @@ void Config::setupUserConfig() {
 
     QString localEtcPath = QString(SYSCONFDIR "/skyscraper/");
     if (!QFileInfo::exists(localEtcPath) || isRpInstall) {
+        if (!isRpInstall) {
+            qDebug() << "local install path does not exist" << localEtcPath;
+        }
         // RetroPie or Windows installation type: handled externally
         return;
     }
@@ -269,21 +272,20 @@ void Config::setupUserConfig() {
             dest = dest.replace("resources/", "");
         } else if ((src == "peas.json" || src == "platforms_idmap.csv")) {
             isPristine = isPlatformCfgPristine(tgtDir % "/" % dest);
-            // isPristine == 1: keep new file in *.dist
+            // isPristine == 1: keep updated files from release in *.dist
             if (isPristine == 0) {
                 configFiles[src].second = FileOp::OVERWRITE;
             } else if (isPristine < 0) {
-                ncprintf(
-                    "\033[1;31mFile '%s' does not exist or cannot be read. "
-                    "Please fix. Quitting.\033[0m\n",
-                    (tgtDir % "/" % dest).toUtf8().constData());
+                ncprintf("\033[1;31mFile '%s' cannot be read. "
+                         "Please fix. Quitting.\033[0m\n",
+                         (tgtDir % "/" % dest).toUtf8().constData());
                 emit die(1,
                          QString("cannot access '%1'").arg(tgtDir % "/" % dest),
-                         "File does not exist or permission denied");
+                         "Permission denied");
             }
         }
         QString tgt = tgtDir % "/" % dest;
-        copyFile(localEtcPath % src, tgt, isPristine,
+        copyFile(localEtcPath % src, tgt, isPristine == 0,
                  configFiles.value(src).second);
     }
 }
