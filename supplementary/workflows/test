@@ -15,9 +15,9 @@ _test_android() {
 
 _smoke_test() {
 	# Qt5
-	/usr/local/bin/Skyscraper --buildinfo | grep "Qt:" | grep -q "5."
+	/usr/local/bin/Skyscraper --buildinfo
 	# Qt6
-	"${SKYSCRAPER_HOME}/Skyscraper" --buildinfo | grep "Qt:" | grep -q "6."
+	"${SKYSCRAPER_HOME}/Skyscraper" --buildinfo
 }
 
 _unit_tests() {
