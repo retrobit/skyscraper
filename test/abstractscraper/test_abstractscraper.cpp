@@ -42,9 +42,10 @@ private slots:
         scraper = new AbstractScraper(&settings, NULL);
         QFileInfo info("Gametitle (france) (wOrLD) (j).zip");
         QList<QString> regionPriosExp;
+        // currently ordered by match in regionMap()
         regionPriosExp.append("fr");
-        regionPriosExp.append("wor");
         regionPriosExp.append("jp");
+        regionPriosExp.append("wor");
         match(info, regionPriosExp);
         qDebug() << info.completeBaseName();
         qDebug() << regionPriosExp;
