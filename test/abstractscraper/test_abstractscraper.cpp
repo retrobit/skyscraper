@@ -35,7 +35,7 @@ private slots:
     void testDetectRegionsFromFilename2() {
         // "world" shall not be detected as it is not in parenthesis
         scraper = new AbstractScraper(&settings, NULL);
-        QFileInfo info("Gametitle (j) (world).zip");
+        QFileInfo info("Gametitle (j) world.zip");
         QList<QString> regionPriosExp;
         regionPriosExp.append("jp");
         match(info, regionPriosExp);
@@ -44,9 +44,9 @@ private slots:
     void testDetectRegionsFromFilename3() {
         // "world" shall not be detected as it is not in parenthesis
         scraper = new AbstractScraper(&settings, NULL);
-        QFileInfo info("Gametitle (france) (wOrLD) (j).zip");
+        QFileInfo info("Gametitle (france) wOrLD (j).zip");
         QList<QString> regionPriosExp;
-        // currently ordered by match in regionMap()
+        // expected order by match in in filename as no regionPrioList is given
         regionPriosExp.append("fr");
         regionPriosExp.append("jp");
         match(info, regionPriosExp);
