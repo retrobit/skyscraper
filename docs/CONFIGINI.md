@@ -805,7 +805,7 @@ region="de"
 #### regionFromFilename
 
 With this parameter (introduced with Skyscraper 3.20) you can control at which position detected regions from a game filename will be put. `first` means all detected region will be put first as in the order they are within the filename (this is the pre Skyscraper 3.20 behaviour). `inline` will pigeon-hole a detected region at the position at the region prios list, and will put any additionally detected region which is not on the region prios list at the end of the region prios list. The region prio list is calculated for each game file before performing the scraping.  
-You can also disable the filename detection of regions by setting this to `off`.
+You can also disable the filename detection of regions by setting this to `off`, then the region prio list will be processed as-is ignoring any region info from the game file names.
 
 Accepted values: `first`, `inline`, `off`  
 Default value: `inline`  
@@ -813,7 +813,7 @@ Allowed in sections: `[main]`, `[<PLATFORM>]`
 
 **Example(s)**
 
-Set to `inline` mode:
+When to `inline` mode (aka default behaviour):
 
 ```ini
 [snes]
@@ -832,7 +832,7 @@ will result in the region prio list
 will result in the region prio list  
 "eu, br, us, jp, wor". Note the world at end of list as it was not on the configured `regionPrios`.
 
-When set to `first` mode:
+When set to `first` mode (aka pre Skyscraper 3.20 behaviour):
 
 ```ini
 [snes]

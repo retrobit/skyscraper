@@ -284,6 +284,7 @@ bool Platform::loadPlatformsIdMap() {
 int Platform::isPlatformCfgfilePristine(const QString &cfgFilePath) {
     QMap<QString, QStringList> sha256sums = {
         // clang-format off
+        // add newer sha256 add the end
         {"peas.json", QStringList(
                 {"67739818ca4d62f277f5c143bff89e0a0083eae96ae26692ec509af5a3db677b",
                  "eb88759262cfa3da46f0f6ff19fba4c89a20c4089ca51294ad4554c6613d9db8",
@@ -305,7 +306,8 @@ int Platform::isPlatformCfgfilePristine(const QString &cfgFilePath) {
                  "44a416856327c01c1ec73c41252f9c3318bf703c33fd717935f31b37e635f413",
                  "9af2abea78af7b94b8c86d97417fb4aff347a8b6eef5c0fdab37be31938f5f9a",
                  "0c4a1cb2cde6c772c3125d59a1ae776a0cc05888520f131b3e058fbb91be00dd",
-                 "17d70390fdc1b6f2bb316087227a307a7190c0de00d88308507698163ef0b0a4"}
+                 "17d70390fdc1b6f2bb316087227a307a7190c0de00d88308507698163ef0b0a4",
+                 "52f092c3850b81b07ada041c88c4bc240cb8cfdf17fb6fd136b42f48020f8339"}
             )
         }
         // clang-format on

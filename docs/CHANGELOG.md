@@ -3,10 +3,11 @@
 This page summarizes the changes of each Skyscraper release, a [changlog for
 humans](https://keepachangelog.com).
 
-### Version 3.20.0 (2026-05-TBA)
+### Version 3.20.0 (2026-06-04)
 
-- Added: Scraping of TheGamesDB video media. Set `--flags video` or use option
-  [`videos=true`](CONFIGINI.md#videos).
+- Added: TheGamesDB does provide videos since a few weeks, thus scraping of
+  TheGamesDB video media was added to Skyscraper. Set `--flags video` or use
+  option [`videos=true`](CONFIGINI.md#videos).
 - Added: Support for RetroArch compatible frontend output. See
   [frontend](FRONTENDS.md#retroarch) documentation. Thanks to @SineSwiper for
   the valueable input
@@ -16,8 +17,8 @@ humans](https://keepachangelog.com).
   the configured region prios. From this this version onwards the filename
   detected regions are added in order as they appear in the region priorities.
   See also the updated [region
-  documentation](REGIONS.md#default-region-prioritization). Thanks for bringing
-  this to my attention @mattfeeder18
+  documentation](REGIONS.md#default-region-prioritization). Thanks for your
+  contribution and bringing this to my attention @mattfeeder18
 - Updated: `mamemap.csv` with MAME 0.284 entries and platform definitions of
   Screenscraper.fr, MobyGames and The GamesDB.
 - Fixed: Several minor bugs

@@ -14,14 +14,18 @@ Skyscraper]((https://github.com/muldjord/skyscraper?tab=readme-ov-file#code-cont
 Additions since Skyscraper 3.7.7 (2023):
 
 - Verified to compile and run on Linux, NixOS, macOS and Windows
-- Commandline Bash completion on Linux systems
-- Platforms (systems) to scrape can be added via configuration files
+- Platforms (aka systems) to scrape can be added via configuration files
 - Several more platforms added and supported out-of-the-box
 - Added support for EmulationStation Desktop Edition (ES-DE) and Batocera
-  Gamelist format
+  Gamelist format and for RetroArch Playlist format
 - Added scraping of game manuals as PDF, fanart and backcover
-- Welcoming the 10th scraping module: Ingest GameBase DB data
-- Support for XDG Base Directory standard
+- Welcoming the 10th scraping module: Ingest [GameBase
+  DB](https://www.bu22.com/) data
+- Commandline Bash completion on Linux systems
+- Support for [XDG Base Directory
+  standard](https://specifications.freedesktop.org/basedir/latest/) and
+  [FHS](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)-compliant
+  packaging
 - Various configuration options added to fine-tune scraping and Gamelist
   creation
 - This extensive Skyscraper documentation is available in [mkdocs/material
